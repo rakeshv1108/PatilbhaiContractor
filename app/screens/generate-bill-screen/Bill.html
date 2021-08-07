@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Patilbhai Contractor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            size: 7in 9.25in;
+            margin: 27mm 16mm 27mm 16mm;
+            position: absolute;
+            background-color: white;
+            box-sizing: border-box;
+            color: red;
+        }
+
+        .main-container {
+            position: relative;
+            top: 10;
+            left: 10;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .getSection {
+            color: red;
+            font-size: 20%;
+        }
+
+        .originalSection {
+            float: right;
+            text-align: center;
+            color: red;
+            font-size: 20%;
+        }
+
+        .conatinerHeader {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .shreeGaneshSection {
+            color: red;
+            text-align: center;
+            margin-left: -7%;
+            font-size: 20%;
+        }
+
+        .panSection {
+            background-color: red;
+            color: white;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        #redLine {
+            border: 0.05px solid red;
+            margin-top: -3px;
+        }
+
+        .detailContainer {
+            display: flex;
+            flex-direction: row;
+            padding-bottom: 5px;
+            border-bottom: 1px solid red;
+        }
+
+        .subContainerDetails {
+            flex: 1;
+            text-align: center;
+            color: red;
+            font-size: 163%;
+        }
+
+        #pcLogo {
+            height: 12%;
+            width: 12%;
+            margin-top: 2px;
+        }
+
+        #crainlLogo {
+            height: 12%;
+            width: 12%;
+            margin-top: 2px;
+        }
+
+        #farmTitleName {
+            font-size: 180%;
+        }
+
+        #boilerTxt {
+            font-size: 10%;
+        }
+
+        #machineryTxt {
+            font-size: 20%;
+        }
+
+        .postAddContainer {
+            color: red;
+            display: flex;
+            flex-direction: row;
+            letter-spacing: 1px;
+            width: 100%;
+            font-size: 20%;
+        }
+
+        @font-face {
+            font-family: Greyhound;
+            src: url('/Users/pcq151/Documents/ReactNative/IgniteFirstApp/PatilbhaiContractor/app/screens/generate-bill-screen/Greyhound_Bold.ttf')
+        }
+
+        div.a {
+            text-align: justify;
+            -moz-text-align-last: right;
+            text-align-last: right;
+        }
+
+        .columnClass {
+            float: left;
+            width: 75%;
+            border: 1px solid red;
+            border-top-width: 0px;
+            font-size: 20%;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            color: red;
+        }
+
+        #horizontalView {
+            display: flex;
+            flex-direction: row;
+            width: 98%;
+            justify-content: space-between;
+            padding-left: 1%;
+            margin-bottom: 0.5%;
+        }
+
+        #forPatil {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+            text-align: center;
+            border: 1px solid red;
+            border-left-width: 0px;
+            border-top-width: 0px;
+        }
+
+        #rupees {
+            font-size: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1% 1% 1% 1%;
+            margin-top: 0.5%;
+            line-height: 0.7;
+        }
+
+        #bank {
+            border-width: 0px;
+            border-top-width: 1px;
+            border-top-color: red;
+            border-style: solid;
+            padding-left: 1%;
+        }
+
+        #bankDetailSubContainer {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            padding-left: 1%;
+        }
+
+        #detailKeys {
+            margin-right: .5%;
+        }
+
+        #payableAmount {
+            display: flex;
+            flex-direction: row;
+            width: 25%;
+            border: 1px solid red;
+            border-left-width: 0px;
+            border-top-width: 0px;
+            font-size: 20%;
+        }
+
+        #centerView {
+            padding-top: 2.5%;
+            padding-bottom: 2.5%;
+            border-top-width: 1px;
+            border-top-color: red;
+            border-top-style: solid;
+            border-right-width: 1px;
+            justify-content: space-between;
+        }
+
+        #centerViewinGrandTotal {
+            padding-top: 2%;
+            text-align: center;
+            align-items: center;
+            padding-bottom: 2%;
+            border-top-width: 1px;
+            border-top-color: red;
+            border-top-style: solid;
+            font-size: 10px;
+            border-right-width: 1px;
+            justify-content: space-between;
+        }
+
+        #totalTxt {
+            padding-top: 2.5%;
+            padding-bottom: 2.5%;
+            border-right-width: 1px;
+            font-size: 10px;
+            margin-top: 5px;
+            justify-content: space-between;
+        }
+
+        #totalTxtValue {
+            padding-top: 2.5%;
+            padding-bottom: 2.5%;
+            border-right-width: 1px;
+            margin-top: 5px;
+            color: black;
+            font-size: 10px;
+            text-align: center;
+            justify-content: space-between;
+        }
+
+        .subContainerPrices {
+            flex-direction: column;
+            width: 50%;
+            border-right-width: 1px;
+            border-right-color: red;
+            font-size: 10px;
+            border-right-style: solid;
+        }
+
+        .subContainerValues {
+            flex-direction: column;
+            width: 50%;
+            border-right-width: 0px;
+            text-align: center;
+            font-size: 10px;
+            color: black;
+            border-right-color: red;
+            border-right-style: solid;
+        }
+
+        #rupeesLine {
+            margin-left: 10%;
+            border: 0.5px solid red;
+            background-color: red;
+        }
+
+        .paddingLeft {
+            padding-left: 1%;
+        }
+
+        .partyDetailContainer {
+            /* background-color: salmon; */
+            display: flex;
+            color: red;
+            font-size: 20%;
+            flex-direction: row;
+        }
+
+        #partyPersonalDetailsView {
+            width: 70%;
+            border: 1px solid red;
+            border-bottom-width: 0px;
+            padding-left: 1%;
+            padding-top: 0.7%;
+            padding-right: 1%;
+        }
+
+        #partyNameKey {
+            align-self: center;
+        }
+
+        #partyNameValue {
+            color: black;
+            font-weight: 'bold';
+            font-size: 12px;
+        }
+
+        .commonPartyUnderLine {
+            margin-left: 4%;
+            margin-top: 1.2%;
+            margin-bottom: 1%;
+            border: 0.5px solid red;
+            background-color: red;
+        }
+
+        .addressFirstUnderline {
+            margin-left: 7%;
+            margin-top: 1.2%;
+            margin-bottom: 1%;
+            border: 0.5px solid red;
+            background-color: red;
+        }
+
+        .horizontalContainer {
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+        }
+
+        #extraPatyAddress {
+            flex: 1;
+            margin-top: 0%;
+            margin-bottom: 1%;
+            border: 0.5px solid red;
+            background-color: red;
+        }
+
+        #verticalContainer {
+            flex-direction: column;
+            display: flex;
+            flex: 0.5;
+        }
+
+        .stateUnderline {
+            margin-left: 10%;
+            margin-top: 1.2%;
+            margin-bottom: 1%;
+            border: 0.5px solid red;
+            background-color: red;
+        }
+
+        .stateCodeUnderline {
+            margin-left: 22%;
+            margin-top: 1.2%;
+            margin-bottom: 1%;
+            border: 0.5px solid red;
+            background-color: red;
+        }
+
+        #stateContainer {
+            flex-direction: row;
+            display: flex;
+            margin-bottom: 2%;
+            width: 100%;
+        }
+
+        #verticalContainer {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #firstGSTNoBox {
+            border: 1px solid red;
+            width: 3%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 0.5%;
+            font-size: 30%;
+            color: black;
+        }
+
+        .gstNoBox {
+            border: 1px solid red;
+            border-left-width: 0px;
+            width: 3%;
+            font-size: 30%;
+            color: black;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 0.5%;
+        }
+
+        #txtGSTNo {
+            margin-right: 1%;
+            margin-bottom: 0.5%;
+        }
+
+        #billDetailView {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            border: 1px solid red;
+            border-left-width: 0px;
+            border-bottom-width: 0px;
+        }
+
+        #rowWithBottomBorder {
+            padding-top: 4%;
+            padding-bottom: 4%;
+            padding-left: 2%;
+            border-bottom: 1px solid red;
+            display: flex;
+            flex-direction: row;
+            color: red;
+        }
+
+        #serviceTxt {
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            margin-top: 2%;
+            flex: 1;
+        }
+
+        #serviceUnderline {
+            margin: 0.2% 2% 0.5% 2%;
+            border: 0.5% solid red;
+        }
+
+        #supplyPlaceName {
+            margin-bottom: 1%;
+            margin-top: 2%;
+            font-size: 20%;
+        }
+
+        .serviceDetailContainer {
+            width: 100%;
+            height: 3.5in;
+            font-size: 20%;
+        }
+
+        .serviceSubContainer_SRNO {
+            display: flex;
+            flex-direction: column;
+            width: 5%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 0px;
+        }
+
+        .serviceSubContainer_DES {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 0px;
+        }
+
+        .serviceSubContainer_HSN {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 0px;
+        }
+
+        .serviceSubContainer_QUANTITY {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 0px;
+        }
+
+        #srNoTxt {
+            justify-content: center;
+            text-align: center;
+            color: red;
+            width: 100%;
+            border-bottom: 1px solid red;
+        }
+
+        #srNoView {
+            justify-content: center;
+            text-align: center;
+            color: black;
+            margin-top: 5px;
+        }
+
+        #desTxt {
+            justify-content: center;
+            text-align: center;
+            color: red;
+            border-bottom: 1px solid red;
+            height: 7%;
+            align-items: center;
+        }
+
+        #desView {
+            display: flex;
+            flex: 1;
+        }
+
+        #desOfGoods {
+            margin-top: 5px;
+            margin-left: 5px;
+            color: black;
+            font-size: 12px;
+            flex-wrap: wrap;
+            margin-right: 5px;
+        }
+
+        #hsnCode {
+            flex: 1;
+            margin-top: 5px;
+            margin-left: 5px;
+            color: black;
+            font-size: 12px;
+            flex-wrap: wrap;
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        .serviceSubContainer_RATE {
+            display: flex;
+            flex-direction: column;
+            width: 9%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 0px;
+        }
+
+        #rateRsPs {
+            display: flex;
+            /* border: 1px solid red; */
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        #amountRsPs {
+            display: flex;
+            /* border: 1px solid red; */
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        #verLineRate {
+            justify-content: center;
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+        }
+
+        .serviceSubContainer_PER {
+            display: flex;
+            flex-direction: column;
+            width: 5%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 0px;
+        }
+
+        .serviceSubContainerAMOUNT {
+            display: flex;
+            flex-direction: column;
+            width: 17.1%;
+            height: 3.5in;
+            align-self: flex-start;
+            border: 1px solid red;
+            border-right-width: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--------------------------------------------------- Header View--------------------------------------------------->
+    <div class="conatinerHeader">
+        <div class="getSection">
+            <p>STATE-GUJARAT/CODE-24</p>
+            <p>GSTIN : 24ALBPP8535D1ZB</p>
+            <div class="panSection">
+                <p> &nbsp; PAN NO. : ALBPP8535D</p>
+                <p> &nbsp; VITTHALBHAI D. PATIL</p>
+            </div>
+        </div>
+        <div class="shreeGaneshSection">
+            <p>Shree Ganeshay Namah</p>
+            <p>Tax Invoice Supply of Service</p>
+            <hr id="redLine" />
+        </div>
+        <div class="originalSection">
+            <p>Original</p>
+            <p>M.: 9227233542</p>
+            <p>M.: 9327071486</p>
+        </div>
+    </div>
+    <div class="detailContainer">
+        <img src="/Users/pcq151/Documents/ReactNative/IgniteFirstApp/PatilbhaiContractor/app/components/icon/icons/pc_logo@3x.png" style="height: 90px; width: 90px; background-color:'white'; margin-right: 20px" alt="pcLogo" id="pcLogo" />
+        <div class="subContainerDetails">
+            <p id="farmTitleName" style="font-size: 40px; font-family:Greyhound;">Patilbhai Contractor</p>
+            <p id="boilerTxt">Boiler Chimney, E.O.T. Craine, Tanki, Machinery, Electric, Furneese,</p>
+            <p id="boilerTxt">(Crane Haire, Open D.C.M, Transport Sub.)</p>
+            <b> <p id="machineryTxt">Machinery Loading Unloading Contractor</p> </b>
+        </div>
+        <img src="/Users/pcq151/Documents/ReactNative/IgniteFirstApp/PatilbhaiContractor/app/components/icon/icons/crane_image@3x.png" style="height: 90px; width: 90px" alt="crainLogo" id="crainlLogo" />
+    </div>
+    <div class="postAddContainer">
+        <h4>Post Add. :</h4>
+        <p> 3, Ekta Complex, Nr. Ajay Estate, Gujarat Bottling, Keval Kanta Road, Rakhial, Ahmedabad-23.</p>
+    </div>
+
+    <!--------------------------------------------------- Center View--------------------------------------------------->
+
+    <div class="partyDetailContainer">
+        <div id="partyPersonalDetailsView">
+            <div>
+                <div class="row">
+                    <p id="partyNameKey"> M/s &nbsp; &nbsp; </p>
+                    <p id="partyNameValue"> Mukund Steels </p>
+                </div>
+                <hr class="commonPartyUnderLine" />
+            </div>
+            <div>
+                <div class="row">
+                    <p id="partyNameKey"> Address  &nbsp; &nbsp; </p>
+                    <p id="partyNameValue"> rakhial </p>
+                </div>
+                <hr class="addressFirstUnderline" />
+            </div>
+            <p id="partyNameValue"> Ahmedabad </p> 
+            <hr id="extraPatyAddress" />
+            <div id="stateContainer">
+                <div id="verticalContainer">
+                    <div class="row">
+                        <p id="partyNameKey"> State &nbsp; &nbsp; </p>
+                        <p id="partyNameValue"> Gujarat </p>
+                    </div>
+                    <hr class="stateUnderline" />
+                </div>
+                <div id="verticalContainer">
+                <div class="row">
+                    <p id="partyNameKey"> &nbsp; State Code &nbsp; &nbsp; &nbsp; &nbsp; </p>
+                    <p id="partyNameValue"> 24 </p>
+                    </div>
+                    <hr class="stateCodeUnderline" />
+                </div>
+            </div>
+            <div class="horizontalContainer">
+                <p id="txtGSTNo">Party GST No </p>
+                <div id="firstGSTNoBox"><p id="partyNameValue"> 2 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> 4 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> A </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> B </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> B </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> P </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> K </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> 9 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> 8 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> 6 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> 0 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> A </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> 1 </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> Z </p></div>
+                <div class="gstNoBox"><p id="partyNameValue"> Y </p></div>
+            </div>
+        </div>
+        <div id="billDetailView">
+            <div id="rowWithBottomBorder">
+                <p style="margin-top: 1px"> Invoice No.: &nbsp; &nbsp; </p>
+                <p id="partyNameValue"> hkhgk </p>
+            </div>
+            <div id="rowWithBottomBorder">
+                <p style="margin-top: 1px"> Date: &nbsp; &nbsp; </p>
+                <p id="partyNameValue"> 16/02/2021 </p>
+            </div>
+            <div id="rowWithBottomBorder">
+                <p> REVEARSE CHARGE : YES/NO </p>
+            </div>
+            <p id="serviceTxt">Supply of Service Palace.:</p>
+            <div id="supplyPlaceName">
+                <p style="text-align: center; font-size: 12px; margin-top: 0.2%; color: black;"> hkjghkk </p>
+                <hr id="serviceUnderline" />
+            </div>
+        </div>
+    </div>
+
+    <div class="serviceDetailContainer">
+        <div class="horizontalContainer">
+            <div class="serviceSubContainer_SRNO">
+                <div id="srNoTxt">
+                    <p> Sr </p>
+                    <p> No.</p>
+                </div>
+                <div id="srNoView">
+                    <p style="align-self: center; font-size: 12px;"> 1. </p>
+                </div>
+            </div>
+            <div class="serviceSubContainer_DES">
+                <div id="desTxt">
+                    <p style="margin-top: 2%;"> DESCRIPTION OF GOODS </p>
+                </div>
+                <div id="desView">
+                    <p id="desOfGoods"> Packet, Coil & Plate Loading, Unloading and Shifting work crain charges </p>
+                </div>
+            </div>
+            <div class="serviceSubContainer_HSN">
+                <div id="srNoTxt">
+                    <p> HSN </p>
+                    <p> SAC </p>
+                </div>
+                <div id="desView">
+                    <p id="hsnCode"> 997318 </p>
+                </div>
+            </div>
+            <div class="serviceSubContainer_QUANTITY">
+                <div id="desTxt">
+                    <p style="margin-top: 6%;"> QUANTITY </p>
+                </div>
+                <div id="desView">
+                    <p id="hsnCode"> - </p>
+                </div>
+            </div>
+            <div class="serviceSubContainer_RATE">
+                <div id="srNoTxt">
+                        <p> RATE</p>
+                        <div id="rateRsPs">
+                            <p style="flex: 1"> Rs</p>
+                            <p style="flex: 0.4"> Ps</p>
+                        </div>
+                </div>
+                <div id="desView">
+                    <div id= "verLineRate">
+                        <p style="text-align: center; flex: 1; font-size: 12px; color: black; margin-top: 5px"> - </p>
+                        <hr style="width:1px; color:red; background-color:red;border: none; ">
+                        <p style="text-align: center; flex: 0.4; font-size: 12px; color: black;  margin-top: 5px"> 0 </p>
+                    </div>
+                </div>
+            </div>
+            <div class = "serviceSubContainer_PER">
+                <div id="desTxt">
+                    <p style="margin-top: 32%;"> PER</p>
+                </div>
+                <div id="desView">
+                <p id="hsnCode"> - </p>
+                </div>
+            </div>
+            <div class = "serviceSubContainerAMOUNT">
+                <div id="srNoTxt">
+                    <p> Amount</p>
+                    <div id="amountRsPs">
+                        <p style="flex: 1"> Rs</p>
+                        <p style="flex: 0.3"> Ps</p>
+                    </div>
+                </div>
+                <div id="desView">
+                    <div id="verLineRate">
+                        <p style="text-align: center; flex: 1; font-size: 12px; color: black; margin-top: 5px"> 67867 </p>
+                        <hr style="width:1px; color:red; background-color:red;border: none; ">
+                        <p style="text-align: center; flex: 0.3; font-size: 12px; color: black;  margin-top: 5px"> 0 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--------------------------------------------------- Footer View--------------------------------------------------->
+    <div class="row">
+        <div class="columnClass">
+            <div id="rupees">
+                <div style="flex-direction: row; display: flex;">
+                    <p style="flex: 0.3"> RUPEES : &nbsp; &nbsp; </p>
+                    <p style="margin-left: 5px; margin-bottom: 5px ;color:black;"> Eighty Thousand Eighty Three Rupees </p>
+                </div>
+                <hr id="rupeesLine" />
+            </div>
+            <div id="bank">
+                <h3> Bank Detail</h3>
+            </div>
+            <div id="bankDetailSubContainer">
+                <div id="detailKeys">
+                    <p> Name</p>
+                    <p> Bank Name</p>
+                    <p> Branch </p>
+                    <p> Current A/c. No.</p>
+                    <p> RTGS/NEFT Code</p>
+                </div>
+                <div>
+                    <p> : &nbsp; Patilbhai Contractor</p>
+                    <p> : &nbsp; The Ahmedabad Disrict Co-Op. Bank Ltd.</p>
+                    <p> : &nbsp; CTM Char Rasta</p>
+                    <p> : &nbsp; 607115100762</p>
+                    <p> : &nbsp; GSCB0ADC001</p>
+                </div>
+            </div>
+        </div>
+        <div id="payableAmount">
+            <div class="subContainerPrices">
+                <p id="totalTxt"> &nbsp; TOTAL</p>
+                <p id="centerView"> &nbsp; SGST </p>
+                <p id="centerView"> &nbsp; CGST </p>
+                <p id="centerView"> &nbsp; IGST </p>
+                <p id="centerViewinGrandTotal"> &nbsp; GRAND TOTAL</p>
+            </div>
+            <div class="subContainerValues">
+                <p id="totalTxtValue"> &nbsp; 67867/= </p>
+                <p id="centerView"> &nbsp; 6108/= </p>
+                <p id="centerView"> &nbsp; 6108/= </p>
+                <p id="centerView"> &nbsp;  </p>
+                <p id="centerViewinGrandTotal"> &nbsp; 80083/= </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columnClass">
+            <div id="horizontalView">
+                <h3> TERMS & CONDITIONS :</h3>
+                <h4>E.&.O.E. </h4>
+            </div>
+            <p class="paddingLeft"> 1. This bill should be paid within one month from the date, failing @24% </p>
+            <p class="paddingLeft"> &nbsp; &nbsp; interest will be change, bill remain unpaid after 10 days, of
+                after
+                the date specified in our bill</p>
+            <p class="paddingLeft"> 2. Goods once sold will not be taken back.</p>
+            <p class="paddingLeft"> 3. Our risk and responsibility ceases after goods leave our premises.</p>
+            <p class="paddingLeft"> 4. Subject to AHMEDABAD Juridiction.</p>
+        </div>
+        <div id="forPatil">
+            <p style="font-family: Greyhound; font-size: 30%; letter-spacing: 0.8px; margin-top: 0px;"> FOR, Patilbhai Contractor</p>
+            <p style="margin-bottom: 3%; font-size: 20%;"> Proprietor/Authorised Signature</p>
+        </div>
+    </div>
+</body>
+
+</html>
